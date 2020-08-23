@@ -1,0 +1,137 @@
+@font-face
+{
+    font-family: Playfair;
+    src: url('../fonts/Alata-Regular.ttf') format("truetype");
+    font-weight: 400;
+}
+
+* {
+    font-family: Playfair;
+}
+
+html, body
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background-color: rgb(31, 31, 31);
+    color: white;
+}
+
+.drag-bar
+{
+    -webkit-app-region: drag;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(26, 26, 26);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.025);
+}
+
+.drag-bar svg
+{
+    margin-left: 50%;
+    transform: translate(-50%, 10px);
+}
+
+svg
+{
+    fill: white;
+}
+
+.content
+{
+    position: absolute;
+    width: 100%;
+    top: -webkit-calc(50% + 30px);
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content div input
+{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgb(41, 41, 41);
+    background-color: transparent;
+    padding: 5px;
+    color: white;
+    width: 300px;
+}
+
+.content div input::placeholder
+{
+    color: rgb(53, 53, 53);
+}
+
+button
+{
+    outline: none;
+    padding: 5px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    transition-property: background-color;
+    transition-duration: 1s;
+}
+
+button:hover
+{
+    cursor: pointer;
+    background-color: black;
+}
+
+h1
+{
+    text-transform: uppercase;
+}
+
+p 
+{
+    margin: 0;
+}
+
+#little
+{
+    font-size: 0.8rem;
+    font-weight: 200;
+    color: rgb(88, 88, 88);
+}
+
+.progress-bar
+{
+    position: absolute;
+    background-color: #1a1a1a;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+}
+
+.progress-bar .indicator
+{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 153, 0);
+
+    background-image: linear-gradient(90deg, #1a1a1a 0%, #e91e63 80%, #8bc34a 100%);
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    animation: movebar 1s linear infinite;
+}
+
+@keyframes movebar
+{
+  from
+  {
+    background-position: 0 0;
+  }
+  to
+  {
+    background-position: 500px 0;
+  }
+}
