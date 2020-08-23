@@ -1,0 +1,19 @@
+{
+  "name": "koala",
+  "version": "1.0.0",
+  "description": "App that allow you to watch movies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5aitama/Koala.git"
+  },
+  "author": "5aitama",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/5aitama/Koala/issues"
+  },
+  "homepage": "https://github.com/5aitama/Koala#readme"
+}
