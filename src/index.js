@@ -4,6 +4,7 @@ const contactUrl = "https://twitter.com/5aitama1";
 const labelStatusTitle = document.getElementById("status").children.item(0);
 const labelStatusDescription = document.getElementById("status").children.item(1);
 
+var serverUrl = "";
 /**
  * Update the status descripton text
  * @param {string} text 
@@ -46,7 +47,6 @@ fetch(serversUrl)
 
                 UpdateStatusDesc("Connect to server...")
                 const servers = value.servers;
-                let availableAddr = "";
 
                 for(let addr of servers) {
                     try {
@@ -55,7 +55,7 @@ fetch(serversUrl)
                         if(!response.ok)
                             throw new Error("Response not ok");
 
-                        availableAddr = addr;
+                        serverUrl = addr;
                         break;
                     } 
                     catch(error) {
@@ -63,14 +63,14 @@ fetch(serversUrl)
                     }
                 };
 
-                if(availableAddr === "")
+                if(serverUrl === "")
                 {
                     SetProgressBarVisibility(false);
                     UpdateStatusTitle("ERROR", true);
                     labelStatusDescription.innerHTML = `Can't connect to any servers ! Please contact <a href="${contactUrl}">5aitama</a> !`;
                     return;
                 }
-                console.log(`Available address is ${availableAddr}`);
+                console.log(`Available address is ${serverUrl}`);
             })
             .catch(error => {
                 UpdateStatusTitle("ERROR", true);
@@ -92,3 +92,24 @@ function PromiseTimeout(promise, ms = 3000) {
         promise.then(resolve, reject);
     });
 }
+
+const _host = "http://127.0.0.1:8080/rest/1.0/";
+const _link = "https://1fichier.com/?rpe11lnbrba2x1dkgnyc&af=2298654&af=22123";
+
+UnrestrictCheck(_host, _link)
+    .then(response => {
+        console.log(response);
+        if(response.supported !== 1)
+        {
+            console.log("link unsuported...");
+            return;
+        }
+
+        UnrestrictLink(_host, _link)
+            .then(res => {
+                console.log(res);
+            });
+    })
+    .catch(err => {
+        console.log(err);
+    });
